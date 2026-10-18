@@ -22,7 +22,16 @@ stages:
       jobs:
         - job: depploytoaksjob
           displayName: deploy to aks job
-          steps:
+          steps: 
+            - task: KubernetesManifest@1
+              inputs:
+                action: 'deploy'
+                connectionType: 'kubernetesServiceConnection'
+                kubernetesServiceConnection: 'aks srv connection'
+                namespace: 'Default'
+                manifests: |
+                  $(Build.SourcesDirectory)/manifest/deployment.yml
+                  $(Build.SourcesDirectory)/manifest/service.yml
                              
    
 
