@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: sameeracr.azurecr.io/axion-ui:latest
+        image: sameeracr.azurecr.io/axion-ui:$(tag)
         resources:
           limits:
             memory: "128Mi"
