@@ -28,7 +28,7 @@ stages:
                 action: 'deploy'
                 connectionType: 'kubernetesServiceConnection'
                 kubernetesServiceConnection: 'aks srv connection'
-                namespace: 'Default'
+                namespace: 'default'
                 manifests: |
                   $(Build.SourcesDirectory)/manifest/deployment.yml
                   $(Build.SourcesDirectory)/manifest/service.yml
