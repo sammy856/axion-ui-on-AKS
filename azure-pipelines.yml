@@ -1,4 +1,20 @@
 trigger: none
 
-pool: ubuntu-latest
+pool: 
+  vmImage: ubuntu-latest
+
+stages:
+    - stage: buildandpush
+      displayName: build and push stage
+      jobs:
+          - job: buildandpush
+            displayName: build and push job
+            steps:
+              - task: Docker@2
+                inputs:
+                  containerRegistry: 'ACR service Connection'
+                  repository: 'axion-ui'
+                  command: 'buildAndPush'
+                  Dockerfile: '**/Dockerfile'
+   
 
