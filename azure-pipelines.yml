@@ -16,5 +16,13 @@ stages:
                   repository: 'axion-ui'
                   command: 'buildAndPush'
                   Dockerfile: '**/Dockerfile'
+
+    - stage: deploytoaksstage
+      displayName: deploy to aks stage
+      jobs:
+        - job: depploytoaksjob
+          displayName: deploy to aks job
+          steps:
+                             
    
 
