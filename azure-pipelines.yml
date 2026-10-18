@@ -16,6 +16,8 @@ stages:
                   repository: 'axion-ui'
                   command: 'buildAndPush'
                   Dockerfile: '**/Dockerfile'
+                  tags: |
+                    $(Build.BuildId)
 
     - stage: deploytoaksstage
       displayName: deploy to aks stage
@@ -32,6 +34,9 @@ stages:
                 manifests: |
                   $(Build.SourcesDirectory)/manifest/deployment.yml
                   $(Build.SourcesDirectory)/manifest/service.yml
+                containers: |
+                  sameeracr.azurecr.io/axion-ui:$(Build.BuildId)  
+
                              
    
 
